@@ -1,0 +1,69 @@
+<odoo>
+    <!-- ====== RESUME LIST VIEW ====== -->
+    <record id="view_resume_list" model="ir.ui.view">
+        <field name="name">resume.list</field>
+        <field name="model">advanced_recruitment.resume</field>
+        <field name="arch" type="xml">
+            <list string="Resumes">
+                <field name="candidate_name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="source_filename"/>
+                <field name="score" widget="progressbar"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ====== RESUME FORM VIEW ====== -->
+    <record id="view_resume_form" model="ir.ui.view">
+        <field name="name">resume.form</field>
+        <field name="model">advanced_recruitment.resume</field>
+        <field name="arch" type="xml">
+            <form string="Resume">
+                <sheet>
+                    <group string="Candidate Information">
+                        <group>
+                            <field name="candidate_name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="source_filename"/>
+                            <field name="score"/>
+                            <field name="status"/>
+                            <field name="application_date"/>
+                        </group>
+                    </group>
+                    <group string="CV File">
+                        <field name="cv_file" filename="source_filename" string="Download CV"/>
+                    </group>
+                    <group string="Extracted Text">
+                        <field name="raw_text" widget="monospace" nolabel="1" style="height: 300px;"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ====== MENUS & ACTIONS ====== -->
+    <menuitem id="menu_advanced_recruitment_custom"
+              name="Advanced Recruitment"
+              sequence="10"/>
+
+    <menuitem id="menu_resume_root"
+              name="Resumes"
+              parent="menu_advanced_recruitment_custom"
+              sequence="10"/>
+
+    <record id="action_resume" model="ir.actions.act_window">
+        <field name="name">All Resumes</field>
+        <field name="res_model">advanced_recruitment.resume</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_resume_action"
+              name="All Resumes"
+              parent="menu_resume_root"
+              action="action_resume"/>
+</odoo>

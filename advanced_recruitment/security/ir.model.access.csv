@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_advanced_recruitment_resume,advanced_recruitment.resume,model_advanced_recruitment_resume,,1,1,1,1
+access_advanced_recruitment_cv_upload_line,advanced_recruitment.cv_upload_line,model_advanced_recruitment_cv_upload_line,,1,1,1,1
+access_advanced_recruitment_cv_scan_wizard,advanced_recruitment.cv_scan_wizard,model_advanced_recruitment_cv_scan_wizard,,1,1,1,1
